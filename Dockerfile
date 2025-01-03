@@ -1,11 +1,11 @@
-FROM alpine:3.1
+FROM ubuntu
 
 MAINTAINER CenturyLink Labs <clt-labs-futuretech@centurylink.com>
 ENTRYPOINT ["/usr/src/app/image-graph.sh"]
 CMD [""]
 
-RUN apk update && apk add ruby-dev graphviz ttf-ubuntu-font-family ca-certificates
-RUN gem install --no-rdoc --no-ri docker-api sinatra
+RUN apt-get update && apt-get -y install ruby-sinatra graphviz
+RUN gem install --no-document docker-api
 RUN dot -c
 
 ADD . /usr/src/app/

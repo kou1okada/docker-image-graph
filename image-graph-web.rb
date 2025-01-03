@@ -41,7 +41,7 @@ class Docker::Image
   end
 
   def size
-    info['VirtualSize'] / 1024 / 1024
+    info['Size'] / 1024 / 1024
   end
 
   def tags
