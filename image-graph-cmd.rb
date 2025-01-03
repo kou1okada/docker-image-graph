@@ -4,6 +4,7 @@ require 'docker'
 
 dot_file = []
 dot_file << 'digraph docker {'
+Docker.options.merge!({host: nil}) # This line needs for URI(>=0.12.0) and Excon(<0.96.0).
 
 Docker::Image.all(all: true).each do |image|
 

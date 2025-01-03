@@ -3,6 +3,7 @@ require 'docker'
 
 set :port, ENV['PORT']
 set :bind, '0.0.0.0'
+Docker.options.merge!({host: nil}) # This line needs for URI(>=0.12.0) and Excon(<0.96.0).
 
 get '/' do
   File.read(File.join('public', 'index.html'))
